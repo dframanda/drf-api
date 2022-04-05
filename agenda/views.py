@@ -1,50 +1,99 @@
+from datetime import date, datetime, timedelta
+from django.utils import timezone
+
+from django.contrib.auth.models import User
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
-from agenda.models import Agendamento
-from agenda.serializers import AgendamentoSerializer
+from rest_framework import generics, mixins, permissions
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from rest_framework.views import APIView
 
-from datetime import date, datetime, timedelta
+from agenda.models import Agendamento
+from agenda.serializers import AgendamentoSerializer, PrestadorSerializer
 
-# Create your views here.
-@api_view(http_method_names=["GET", "PATCH", "DELETE"])
-def agendamento_detail(request, id):
-    obj = get_object_or_404(Agendamento, id=id)
-    obj.cancelado = False
-    if request.method == "GET":
-        serializer = AgendamentoSerializer(obj)
-        return JsonResponse(serializer.data)
-    if request.method == "PATCH":
-        serializer = AgendamentoSerializer(obj, data=request.data, partial=True)
-        if serializer.is_valid():
-            serializer.save()
-            return JsonResponse(serializer.data, status=200)
-        return JsonResponse(serializer.errors, status=400)
-    if request.method == "DELETE":
-        obj.cancelado = True
-        lista_cancelados = obj.delete()
-        return Response(status=204)
 
-@api_view(http_method_names=["GET", "POST"])
-def agendamento_list(request):
-    if request.method == "GET":
-        qs = Agendamento.objects.all()
-        serializer = AgendamentoSerializer(qs, many=True)
-        return JsonResponse(serializer.data, safe=False)
-    if request.method == "POST":
-        data = request.data
-        serializer = AgendamentoSerializer(data=data)
-        if serializer.is_valid():
-            serializer.save()
-            return JsonResponse(serializer.data, status=201)
-        return JsonResponse(serializer.errors, status=400)
+class IsOwnerOrCreateOnly(permissions.BasePermission):
+    def has_permission(self, request, view):
+        if request.method == "POST":
+            return True
+        username = request.query_params.get("username", None)
+        if request.user.username == username:
+            return True
+        return False
+
+
+class IsPrestador(permissions.BasePermission):
+    def has_object_permission(self, request, view, obj):
+        if obj.prestador == request.user:
+            return True
+        return False
+
+
+class AgendamentoList(generics.ListCreateAPIView):
+    serializer_class = AgendamentoSerializer
+    permission_classes = [IsOwnerOrCreateOnly]
+
+    def get_queryset(self):
+        executado = self.request.query_params.get("executado", None)
+        confirmado = self.request.query_params.get("confirmado", None)
+        if confirmado == "True" or confirmado == "true":
+            username = self.request.query_params.get("username", None)
+            return Agendamento.objects.filter(
+                prestador__username=username, states="CONF", cancelado=False
+            )
+        if confirmado == "False" or confirmado == "false":
+            username = self.request.query_params.get("username", None)
+            return Agendamento.objects.filter(
+                prestador__username=username, states="UNCO", cancelado=False
+            )
+        if executado == "True" or executado == "true":
+            username = self.request.query_params.get("username", None)
+            data = timezone.now()
+            return Agendamento.objects.filter(
+                prestador__username=username,
+                data_horario__lt=data,
+                states="CONF",
+                cancelado=False,
+            )
+        else:
+            username = self.request.query_params.get("username", None)
+            return Agendamento.objects.filter(
+                prestador__username=username, cancelado=False
+            )
+
+
+class AgendamentoDetail(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = [IsPrestador]
+    queryset = Agendamento.objects.filter(cancelado=False)
+    serializer_class = AgendamentoSerializer
+    lookup_field = "id"  # pk
+
+    def perform_destroy(self, instance):
+        instance.cancelado = True
+        instance.save()
+
+
+class IsAdminUser(permissions.BasePermission):
+    def has_permission(self, request, view):
+        if request.user.is_staff:
+            return True
+        return False
+
+
+class PrestadorList(generics.ListAPIView):
+    permission_classes = [IsAdminUser]
+    serializer_class = PrestadorSerializer
+    queryset = User.objects.all()
+
 
 @api_view(http_method_names=["GET"])
 def horarios_list(request, data):
 
-    data = datetime.strptime(data, '%Y-%m-%d').date()
-    qs = Agendamento.objects.filter(data_horario__date=data).order_by('data_horario__time')
+    data = datetime.strptime(data, "%Y-%m-%d").date()
+    qs = Agendamento.objects.filter(data_horario__date=data).order_by(
+        "data_horario__time"
+    )
     serializer = AgendamentoSerializer(qs, many=True)
     delta = timedelta(minutes=30)
 
@@ -57,23 +106,17 @@ def horarios_list(request, data):
     volta_do_almoco = datetime(data.year, data.month, data.day, 13, 00)
 
     if data.weekday() == 6:
-        horarios_list.append({
-            'Informação': 'O estabelecimento não abre aos domingos.'
-        })
+        horarios_list.append({"Informação": "O estabelecimento não abre aos domingos."})
 
     if data.weekday() == 5:
         while abertura != encerramento_sabado:
-            horarios_list.append({
-                'data_horario': abertura
-            })
+            horarios_list.append({"data_horario": abertura})
 
             abertura += delta
 
     if data.weekday() != 5 and data.weekday() != 6:
         while abertura != encerramento:
-            horarios_list.append({
-                'data_horario': abertura
-            })
+            horarios_list.append({"data_horario": abertura})
 
             if abertura == horario_de_almoco:
                 if horario_de_almoco < volta_do_almoco:
@@ -89,13 +132,13 @@ def horarios_list(request, data):
             horario_de_almoco += delta
 
     for e in serializer.data:
-        e = e.get('data_horario')
+        e = e.get("data_horario")
         horario_e = e[11:16]
         for time in horarios_list:
-            data_horario = time.get('data_horario')
-            horario_list = datetime.strftime(data_horario, '%H:%M')
+            data_horario = time.get("data_horario")
+            horario_list = datetime.strftime(data_horario, "%H:%M")
             if horario_e == horario_list:
                 horarios_list.remove(time)
 
-        return JsonResponse(horarios_list, safe=False)    
+        return JsonResponse(horarios_list, safe=False)
     return JsonResponse(serializer.errors, status=400)
