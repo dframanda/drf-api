@@ -18,3 +18,19 @@ class Agendamento(models.Model):
     telefone_cliente = models.CharField(max_length=20)
     states = models.CharField(max_length=4, choices=STATES_CHOICES, default="UNCO")
     cancelado = models.BooleanField(default=False)
+
+
+class Fidelidade(models.Model):
+    nome_cliente = models.CharField(max_length=200)
+    prestador = models.ForeignKey(
+        "auth.User", related_name="fidelidade", on_delete=models.CASCADE
+    )
+    nivel_fidelidade = models.IntegerField(default=0)
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=["nome_cliente", "prestador", "nivel_fidelidade"],
+                name="fidelidade_unique",
+            )
+        ]

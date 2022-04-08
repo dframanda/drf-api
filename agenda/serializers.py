@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 from rest_framework import serializers
 
-from agenda.models import Agendamento
+from agenda.models import Agendamento, Fidelidade
 
 
 class AgendamentoSerializer(serializers.ModelSerializer):
@@ -24,20 +24,6 @@ class AgendamentoSerializer(serializers.ModelSerializer):
         ]
 
     prestador = serializers.CharField()
-
-    # def validate_states(self, value):
-    #     queryset = Agendamento.objects.all()
-    #     for e in queryset:
-    #         if e.data_horario < timezone.now() and e.states == "CONF":
-    #             e.states = "EXEC"
-    #         if e.data_horario > timezone.now() and e.states == "EXEC":
-    #             raise serializers.ValidationError(
-    #                 "Agendamento não pode ter sido executado!"
-    #             )
-    #         if e.states == "CONF" and e.cancelado == True:
-    #             raise serializers.ValidationError(
-    #                 "Um evento não pode ser confirmado e cancelado ao mesmo tempo!"
-    #             )
 
     def validate_prestador(self, value):
         try:
@@ -139,12 +125,14 @@ class AgendamentoSerializer(serializers.ModelSerializer):
         data_horario = attrs.get("data_horario", "")
         telefone_cliente = attrs.get("telefone_cliente", "")
         email_cliente = attrs.get("email_cliente", "")
+        prestador = attrs.get("prestador", "")
 
         if data_horario and email_cliente:
             if Agendamento.objects.filter(
                 nome_cliente=nome_cliente,
                 email_cliente=email_cliente,
                 data_horario__date=data_horario,
+                prestador__username=prestador,
                 cancelado=False,
             ).exists():
                 raise serializers.ValidationError(
@@ -180,3 +168,10 @@ class PrestadorSerializer(serializers.ModelSerializer):
         fields = ["id", "username", "agendamentos"]
 
     agendamentos = AgendamentoSerializer(many=True, read_only=True)
+
+
+class FidelidadeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Fidelidade
+        fields = "nome_cliente", "nivel_fidelidade"
+

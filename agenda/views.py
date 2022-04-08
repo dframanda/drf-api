@@ -1,16 +1,18 @@
 from datetime import date, datetime, timedelta
+from genericpath import exists
 from django.utils import timezone
 
 from django.contrib.auth.models import User
 from django.http import JsonResponse
-from django.shortcuts import get_object_or_404
-from rest_framework import generics, mixins, permissions
+from rest_framework import generics, permissions
 from rest_framework.decorators import api_view
-from rest_framework.response import Response
-from rest_framework.views import APIView
 
-from agenda.models import Agendamento
-from agenda.serializers import AgendamentoSerializer, PrestadorSerializer
+from agenda.models import Agendamento, Fidelidade
+from agenda.serializers import (
+    AgendamentoSerializer,
+    FidelidadeSerializer,
+    PrestadorSerializer,
+)
 
 
 class IsOwnerOrCreateOnly(permissions.BasePermission):
@@ -33,6 +35,28 @@ class IsPrestador(permissions.BasePermission):
 class AgendamentoList(generics.ListCreateAPIView):
     serializer_class = AgendamentoSerializer
     permission_classes = [IsOwnerOrCreateOnly]
+
+    def post(self, request, *args, **kwargs):
+        data = request.data
+        data_horario = data["data_horario"]
+        nome_cliente = data["nome_cliente"]
+        email_cliente = data["email_cliente"]
+        telefone_cliente = data["telefone_cliente"]
+        prestador_request = data["prestador"]
+        prestador = User.objects.filter(username=prestador_request).first()
+
+        fidelidade_usuario = Fidelidade.objects.filter(
+            nome_cliente=nome_cliente, prestador__username=prestador_request
+        )
+
+        if fidelidade_usuario.exists():
+            fidelidade_usuario = fidelidade_usuario.first()
+            fidelidade_usuario.nivel_fidelidade += 1
+            fidelidade_usuario.save()
+        else:
+            Fidelidade.objects.create(nome_cliente=nome_cliente, prestador=prestador)
+
+        return super().post(request, *args, **kwargs)
 
     def get_queryset(self):
         executado = self.request.query_params.get("executado", None)
@@ -74,15 +98,17 @@ class AgendamentoDetail(generics.RetrieveUpdateDestroyAPIView):
         instance.save()
 
 
-class IsAdminUser(permissions.BasePermission):
-    def has_permission(self, request, view):
-        if request.user.is_staff:
-            return True
-        return False
+class FidelidadeList(generics.ListAPIView):
+    permission_classes = [permissions.IsAuthenticated]
+    serializer_class = FidelidadeSerializer
+
+    def get_queryset(self):
+        username = self.request.query_params.get("username", None)
+        return Fidelidade.objects.filter(prestador__username=username)
 
 
 class PrestadorList(generics.ListAPIView):
-    permission_classes = [IsAdminUser]
+    permission_classes = [permissions.IsAdminUser]
     serializer_class = PrestadorSerializer
     queryset = User.objects.all()
 
