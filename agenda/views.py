@@ -1,4 +1,5 @@
 from datetime import date, datetime, timedelta
+import email
 from genericpath import exists
 from django.utils import timezone
 
@@ -7,11 +8,20 @@ from django.http import JsonResponse
 from rest_framework import generics, permissions
 from rest_framework.decorators import api_view
 
-from agenda.models import Agendamento, Fidelidade
+from agenda.models import (
+    Agendamento,
+    Fidelidade,
+    Funcionarios,
+    Estabelecimento,
+    Servicos,
+)
 from agenda.serializers import (
     AgendamentoSerializer,
+    EstabelecimentoSerializer,
     FidelidadeSerializer,
+    FuncionarioSerializer,
     PrestadorSerializer,
+    ServicosSerializer,
 )
 
 
@@ -37,24 +47,35 @@ class AgendamentoList(generics.ListCreateAPIView):
     permission_classes = [IsOwnerOrCreateOnly]
 
     def post(self, request, *args, **kwargs):
+
+        serializer = AgendamentoSerializer(data=request.data)
         data = request.data
-        data_horario = data["data_horario"]
         nome_cliente = data["nome_cliente"]
-        email_cliente = data["email_cliente"]
-        telefone_cliente = data["telefone_cliente"]
         prestador_request = data["prestador"]
         prestador = User.objects.filter(username=prestador_request).first()
-
+        estabelecimento = data["estabelecimento"]
         fidelidade_usuario = Fidelidade.objects.filter(
             nome_cliente=nome_cliente, prestador__username=prestador_request
         )
 
-        if fidelidade_usuario.exists():
-            fidelidade_usuario = fidelidade_usuario.first()
-            fidelidade_usuario.nivel_fidelidade += 1
-            fidelidade_usuario.save()
-        else:
-            Fidelidade.objects.create(nome_cliente=nome_cliente, prestador=prestador)
+        estabelecimento_obj = Estabelecimento.objects.filter(
+            nome_estabelecimento=estabelecimento
+        )
+
+        if serializer.is_valid():
+            if estabelecimento_obj.exists():
+                if Funcionarios.objects.filter(
+                    prestador__username=prestador_request,
+                    estabelecimento=estabelecimento_obj.first(),
+                ).exists():
+                    if fidelidade_usuario.exists():
+                        fidelidade_usuario = fidelidade_usuario.first()
+                        fidelidade_usuario.nivel_fidelidade += 1
+                        fidelidade_usuario.save()
+                    else:
+                        Fidelidade.objects.create(
+                            nome_cliente=nome_cliente, prestador=prestador
+                        )
 
         return super().post(request, *args, **kwargs)
 
@@ -111,6 +132,65 @@ class PrestadorList(generics.ListAPIView):
     permission_classes = [permissions.IsAdminUser]
     serializer_class = PrestadorSerializer
     queryset = User.objects.all()
+
+
+class FuncionarioList(generics.ListCreateAPIView):
+    serializer_class = FuncionarioSerializer
+    permission_classes = [permissions.IsAdminUser]
+
+    def post(self, request, *args, **kwargs):
+        data = request.data
+        estabelecimento_request = data["estabelecimento"]
+        prestador_request = data["prestador"]
+        servico_request = data["servico"]
+
+        estabelecimento = Estabelecimento.objects.filter(
+            nome_estabelecimento=estabelecimento_request
+        ).first()
+        prestador = User.objects.filter(username=prestador_request).first()
+        servico = Servicos.objects.filter(servico=servico_request).first()
+
+        if servico:
+            if not Funcionarios.objects.filter(
+                estabelecimento=estabelecimento, prestador=prestador, servico=servico
+            ).exists():
+                Funcionarios.objects.create(
+                    estabelecimento=estabelecimento,
+                    prestador=prestador,
+                    servico=servico,
+                )
+
+        return super().post(request, *args, **kwargs)
+
+    def get_queryset(self):
+        estabelecimento = self.request.query_params.get("estabelecimento", None)
+        return Funcionarios.objects.filter(estabelecimento=estabelecimento)
+
+
+class IsAdminOrReadOnly(permissions.BasePermission):
+    def has_permission(self, request, view):
+        if request.method == "POST":
+            if request.user.is_staff:
+                return True
+        if request.method == "GET":
+            return True
+        return False
+
+
+class EstabelecimentoList(generics.ListCreateAPIView):
+    permission_classes = [IsAdminOrReadOnly]
+    serializer_class = EstabelecimentoSerializer
+
+    def get_queryset(self):
+        return Estabelecimento.objects.all()
+
+
+class ServicosList(generics.ListCreateAPIView):
+    permission_classes = [IsAdminOrReadOnly]
+    serializer_class = ServicosSerializer
+
+    def get_queryset(self):
+        return Servicos.objects.all()
 
 
 @api_view(http_method_names=["GET"])

@@ -6,24 +6,24 @@ from urllib import request
 from django.contrib.auth.models import User
 from django.utils import timezone
 from rest_framework import serializers
-
-from agenda.models import Agendamento, Fidelidade
+from django.core.exceptions import ObjectDoesNotExist
+from agenda.models import (
+    Agendamento,
+    Estabelecimento,
+    Fidelidade,
+    Funcionarios,
+    Servicos,
+)
 
 
 class AgendamentoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Agendamento
-        fields = [
-            "id",
-            "data_horario",
-            "nome_cliente",
-            "email_cliente",
-            "telefone_cliente",
-            "prestador",
-            "states",
-        ]
+        fields = "__all__"
 
     prestador = serializers.CharField()
+    estabelecimento = serializers.CharField()
+    servico = serializers.CharField()
 
     def validate_prestador(self, value):
         try:
@@ -31,6 +31,22 @@ class AgendamentoSerializer(serializers.ModelSerializer):
         except User.DoesNotExist:
             raise serializers.ValidationError("Username não existe!")
         return prestador_obj
+
+    def validate_estabelecimento(self, value):
+        try:
+            estabelecimento_obj = Estabelecimento.objects.get(
+                nome_estabelecimento=value
+            )
+        except ObjectDoesNotExist:
+            raise serializers.ValidationError("Estabelecimento não encontrado!")
+        return estabelecimento_obj
+
+    def validate_servico(self, value):
+        try:
+            servico_obj = Servicos.objects.get(servico=value)
+        except ObjectDoesNotExist:
+            raise serializers.ValidationError("Serviço não encontrado!")
+        return servico_obj
 
     def validate_data_horario(self, value):
         if value < timezone.now():
@@ -126,6 +142,18 @@ class AgendamentoSerializer(serializers.ModelSerializer):
         telefone_cliente = attrs.get("telefone_cliente", "")
         email_cliente = attrs.get("email_cliente", "")
         prestador = attrs.get("prestador", "")
+        estabelecimento = attrs.get("estabelecimento", "")
+        servico = attrs.get("servico", "")
+
+        if prestador and estabelecimento:
+            if not Funcionarios.objects.filter(
+                prestador__username=prestador,
+                estabelecimento=estabelecimento,
+                servico=servico,
+            ).exists():
+                raise serializers.ValidationError(
+                    "Funcionário, estabelecimento ou serviço não estão corretos ou não existem!"
+                )
 
         if data_horario and email_cliente:
             if Agendamento.objects.filter(
@@ -133,6 +161,7 @@ class AgendamentoSerializer(serializers.ModelSerializer):
                 email_cliente=email_cliente,
                 data_horario__date=data_horario,
                 prestador__username=prestador,
+                estabelecimento=estabelecimento,
                 cancelado=False,
             ).exists():
                 raise serializers.ValidationError(
@@ -175,3 +204,80 @@ class FidelidadeSerializer(serializers.ModelSerializer):
         model = Fidelidade
         fields = "nome_cliente", "nivel_fidelidade"
 
+
+class FuncionarioSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Funcionarios
+        fields = ["estabelecimento", "prestador", "servico"]
+
+    estabelecimento = serializers.CharField()
+    prestador = serializers.CharField()
+    servico = serializers.CharField()
+
+    def validate_prestador(self, value):
+        try:
+            prestador_obj = User.objects.get(username=value)
+        except User.DoesNotExist:
+            raise serializers.ValidationError("Funcionário não existe!")
+        return prestador_obj
+
+    def validate_estabelecimento(self, value):
+        try:
+            estabelecimento_obj = Estabelecimento.objects.get(
+                nome_estabelecimento=value
+            )
+        except ObjectDoesNotExist:
+            raise serializers.ValidationError("Estabelecimento não existe!")
+        return estabelecimento_obj
+
+    def validate_servico(self, value):
+        try:
+            servico_obj = Servicos.objects.get(servico=value)
+        except ObjectDoesNotExist:
+            raise serializers.ValidationError(
+                "O serviço informado está incorreto ou não existe!"
+            )
+        return servico_obj
+
+    def validate(self, attrs):
+        prestador = attrs.get("prestador", "")
+        estabelecimento = attrs.get("estabelecimento", "")
+        servico = attrs.get("servico", "")
+
+        servico = Servicos.objects.filter(servico=servico).first()
+
+        if servico:
+            if Funcionarios.objects.filter(
+                prestador__username=prestador,
+                estabelecimento=estabelecimento,
+                servico=servico,
+            ).exists():
+                raise serializers.ValidationError(
+                    "O funcionário já está cadastrado neste estabelecimento com o serviço informado!"
+                )
+
+        return attrs
+
+
+class EstabelecimentoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Estabelecimento
+        fields = "__all__"
+
+    nome_estabelecimento = serializers.CharField()
+
+
+class ServicosSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Servicos
+        fields = "__all__"
+
+    servico = serializers.CharField()
+
+    def validate(self, attrs):
+        servico_request = attrs.get("servico", "")
+
+        if Servicos.objects.filter(servico=servico_request).exists():
+            raise serializers.ValidationError("O serviço informado já existe!")
+
+        return attrs
