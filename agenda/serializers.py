@@ -14,6 +14,7 @@ from agenda.models import (
     Funcionarios,
     Servicos,
 )
+from agenda.utils import get_horarios_disponiveis
 
 
 class AgendamentoSerializer(serializers.ModelSerializer):
@@ -53,6 +54,8 @@ class AgendamentoSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError(
                 "Agendamento não pode ser feito no passado!"
             )
+        if value not in get_horarios_disponiveis(value.date()):
+            raise serializers.ValidationError("Este horário não está disponível!")
 
         if value:
             data_request = datetime.fromisoformat(str(value))

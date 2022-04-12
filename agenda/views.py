@@ -23,6 +23,7 @@ from agenda.serializers import (
     PrestadorSerializer,
     ServicosSerializer,
 )
+from agenda.utils import get_horarios_disponiveis
 
 
 class IsOwnerOrCreateOnly(permissions.BasePermission):
@@ -194,57 +195,12 @@ class ServicosList(generics.ListCreateAPIView):
 
 
 @api_view(http_method_names=["GET"])
-def horarios_list(request, data):
+def get_horarios(request):
+    data = request.query_params.get("data")
+    if not data:
+        data = datetime.now().date()
+    else:
+        data = datetime.fromisoformat(data).date()
 
-    data = datetime.strptime(data, "%Y-%m-%d").date()
-    qs = Agendamento.objects.filter(data_horario__date=data).order_by(
-        "data_horario__time"
-    )
-    serializer = AgendamentoSerializer(qs, many=True)
-    delta = timedelta(minutes=30)
-
-    horarios_list = []
-
-    abertura = datetime(data.year, data.month, data.day, 9, 00)
-    encerramento = datetime(data.year, data.month, data.day, 18, 00)
-    encerramento_sabado = datetime(data.year, data.month, data.day, 13, 00)
-    horario_de_almoco = datetime(data.year, data.month, data.day, 12, 00)
-    volta_do_almoco = datetime(data.year, data.month, data.day, 13, 00)
-
-    if data.weekday() == 6:
-        horarios_list.append({"Informação": "O estabelecimento não abre aos domingos."})
-
-    if data.weekday() == 5:
-        while abertura != encerramento_sabado:
-            horarios_list.append({"data_horario": abertura})
-
-            abertura += delta
-
-    if data.weekday() != 5 and data.weekday() != 6:
-        while abertura != encerramento:
-            horarios_list.append({"data_horario": abertura})
-
-            if abertura == horario_de_almoco:
-                if horario_de_almoco < volta_do_almoco:
-                    horarios_list.pop()
-                    horario_de_almoco += delta
-
-            abertura += delta
-
-    if horario_de_almoco in horarios_list:
-        while horario_de_almoco != volta_do_almoco:
-            horarios_list.remove(horario_de_almoco)
-
-            horario_de_almoco += delta
-
-    for e in serializer.data:
-        e = e.get("data_horario")
-        horario_e = e[11:16]
-        for time in horarios_list:
-            data_horario = time.get("data_horario")
-            horario_list = datetime.strftime(data_horario, "%H:%M")
-            if horario_e == horario_list:
-                horarios_list.remove(time)
-
-        return JsonResponse(horarios_list, safe=False)
-    return JsonResponse(serializer.errors, status=400)
+    horarios_disponiveis = sorted(list(get_horarios_disponiveis(data)))
+    return JsonResponse(horarios_disponiveis, safe=False)

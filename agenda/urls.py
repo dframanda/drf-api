@@ -7,14 +7,14 @@ from agenda.views import (
     EstabelecimentoList,
     FuncionarioList,
     PrestadorList,
-    horarios_list,
     FidelidadeList,
+    get_horarios,
 )
 
 urlpatterns = [
     path("agendamentos/", AgendamentoList.as_view(), name="agendamento_list"),
     path("agendamentos/<int:id>/", AgendamentoDetail.as_view()),
-    path("horarios/<str:data>/", horarios_list),
+    path("horarios/", get_horarios),
     path("prestadores/", PrestadorList.as_view()),
     path("fidelidade/", FidelidadeList.as_view()),
     path("funcionarios/", FuncionarioList.as_view()),
