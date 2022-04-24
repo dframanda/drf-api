@@ -25,12 +25,16 @@ def get_horarios_disponiveis(data: date) -> Iterable[datetime]:
 
     if data.weekday() == 5:
         while inicio < fim_sabado:
-            if not Agendamento.objects.filter(data_horario=inicio).exists():
+            if not Agendamento.objects.filter(
+                data_horario=inicio, states="CONF"
+            ).exists():
                 horarios_disponiveis.append(inicio)
             inicio = inicio + delta
     else:
         while inicio < fim:
-            if not Agendamento.objects.filter(data_horario=inicio).exists():
+            if not Agendamento.objects.filter(
+                data_horario=inicio, states="CONF"
+            ).exists():
                 if not inicio_pausa <= inicio < fim_pausa:
                     horarios_disponiveis.append(inicio)
             inicio = inicio + delta

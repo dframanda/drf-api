@@ -1,0 +1,6 @@
+2022-04-19 10:25:32,995 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-19 10:26:39,635 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\tamarcado\settings\dev.py changed, reloading.
+2022-04-19 10:27:51,955 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-19 10:28:26,978 root         INFO     Fazendo requisição para BrasilAPI para a data: 2022-04-12
+2022-04-19 10:28:26,986 urllib3.connectionpool DEBUG    Starting new HTTPS connection (1): brasilapi.com.br:443
+2022-04-19 10:28:27,102 urllib3.connectionpool DEBUG    https://brasilapi.com.br:443 "GET /api/feriados/v1/2022 HTTP/1.1" 200 None

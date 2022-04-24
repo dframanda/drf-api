@@ -30,7 +30,7 @@ class AgendamentoSerializer(serializers.ModelSerializer):
         try:
             prestador_obj = User.objects.get(username=value)
         except User.DoesNotExist:
-            raise serializers.ValidationError("Username não existe!")
+            raise serializers.ValidationError("Username incorreto!")
         return prestador_obj
 
     def validate_estabelecimento(self, value):
@@ -57,86 +57,6 @@ class AgendamentoSerializer(serializers.ModelSerializer):
         if value not in get_horarios_disponiveis(value.date()):
             raise serializers.ValidationError("Este horário não está disponível!")
 
-        if value:
-            data_request = datetime.fromisoformat(str(value))
-            queryset = Agendamento.objects.filter(cancelado=False)
-            timeDelta = timedelta(minutes=30)
-
-            inicio_pausa = datetime(
-                data_request.year,
-                data_request.month,
-                data_request.day,
-                12,
-                tzinfo=timezone.utc,
-            )
-            fim_pausa = datetime(
-                data_request.year,
-                data_request.month,
-                data_request.day,
-                13,
-                tzinfo=timezone.utc,
-            )
-            inicio_expediente = datetime(
-                data_request.year,
-                data_request.month,
-                data_request.day,
-                9,
-                tzinfo=timezone.utc,
-            )
-            fim_expediente = datetime(
-                data_request.year,
-                data_request.month,
-                data_request.day,
-                18,
-                tzinfo=timezone.utc,
-            )
-            fim_expediente_sabado = datetime(
-                data_request.year,
-                data_request.month,
-                data_request.day,
-                13,
-                tzinfo=timezone.utc,
-            )
-
-            if (
-                data_request.weekday() != 6
-                and data_request.weekday() != 5
-                and data_request >= inicio_pausa
-                and data_request < fim_pausa
-            ):
-                raise serializers.ValidationError(
-                    "Não é possível marcar um agendamento no horário de almoço!"
-                )
-            if data_request.weekday() == 6:
-                raise serializers.ValidationError(
-                    "O estabelecimento não funciona aos domingos!"
-                )
-            if data_request.weekday() != 5 and data_request >= fim_expediente:
-                raise serializers.ValidationError(
-                    "O estabelecimento funciona apenas até 18h!"
-                )
-            if data_request.weekday() == 5 and data_request > fim_expediente_sabado:
-                raise serializers.ValidationError(
-                    "O estabelecimento funciona somente até 13h aos sábados!"
-                )
-            if data_request < inicio_expediente:
-                raise serializers.ValidationError(
-                    "O estabelecimento abre apenas às 9h!"
-                )
-
-            for e in queryset:
-                date_intern = datetime.date(e.data_horario)
-
-                if date_intern == data_request.date():
-                    if (
-                        e.data_horario <= data_request - timeDelta
-                        or e.data_horario >= data_request + timeDelta
-                    ):
-                        pass
-                    elif e.states == "CONF":
-                        raise serializers.ValidationError(
-                            "O horário selecionado não está disponível!"
-                        )
         return value
 
     def validate(self, attrs):
@@ -221,7 +141,7 @@ class FuncionarioSerializer(serializers.ModelSerializer):
         try:
             prestador_obj = User.objects.get(username=value)
         except User.DoesNotExist:
-            raise serializers.ValidationError("Funcionário não existe!")
+            raise serializers.ValidationError("Prestador não existe!")
         return prestador_obj
 
     def validate_estabelecimento(self, value):
