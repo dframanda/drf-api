@@ -189,6 +189,16 @@ class EstabelecimentoSerializer(serializers.ModelSerializer):
 
     nome_estabelecimento = serializers.CharField()
 
+    def validate(self, attrs):
+        estabelecimento_request = attrs.get("nome_estabelecimento", "")
+
+        if Estabelecimento.objects.filter(
+            nome_estabelecimento=estabelecimento_request
+        ).exists():
+            raise serializers.ValidationError("O estabelecimento informado já existe!")
+
+        return attrs
+
 
 class ServicosSerializer(serializers.ModelSerializer):
     class Meta:
