@@ -340,3 +340,133 @@ django.core.exceptions.FieldError: Cannot resolve keyword 'estabelecimento' into
 2022-05-04 21:54:58,865 django.utils.autoreload INFO     Watching for file changes with StatReloader
 2022-05-04 21:55:12,628 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\serializers.py changed, reloading.
 2022-05-04 21:55:13,553 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-05-04 21:55:15,258 django.request WARNING  Bad Request: /api/estabelecimentos/
+2022-05-04 21:56:58,969 django.request ERROR    Internal Server Error: /api/funcionarios/
+Traceback (most recent call last):
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 416, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.IntegrityError: NOT NULL constraint failed: agenda_funcionarios.prestador_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\agenda\views.py", line 158, in post
+    Funcionarios.objects.create(
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\query.py", line 457, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\base.py", line 743, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\base.py", line 780, in save_base
+    updated = self._save_table(
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\base.py", line 885, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\base.py", line 923, in _do_insert
+    return manager._insert(
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\query.py", line 1301, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1441, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 416, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.IntegrityError: NOT NULL constraint failed: agenda_funcionarios.prestador_id
+2022-05-04 21:58:21,482 django.request ERROR    Internal Server Error: /api/funcionarios/
+Traceback (most recent call last):
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 416, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.IntegrityError: UNIQUE constraint failed: agenda_funcionarios.prestador_id, agenda_funcionarios.estabelecimento_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\agenda\views.py", line 158, in post
+    Funcionarios.objects.create(
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\query.py", line 457, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\base.py", line 743, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\base.py", line 780, in save_base
+    updated = self._save_table(
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\base.py", line 885, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\base.py", line 923, in _do_insert
+    return manager._insert(
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\query.py", line 1301, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1441, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 416, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.IntegrityError: UNIQUE constraint failed: agenda_funcionarios.prestador_id, agenda_funcionarios.estabelecimento_id
+2022-05-04 21:58:46,413 root         INFO     Fazendo requisição para BrasilAPI para a data: 2022-04-12
+2022-05-04 21:58:46,435 urllib3.connectionpool DEBUG    Starting new HTTPS connection (1): brasilapi.com.br:443
+2022-05-04 21:58:47,128 urllib3.connectionpool DEBUG    https://brasilapi.com.br:443 "GET /api/feriados/v1/2022 HTTP/1.1" 200 None
+2022-05-22 22:24:12,663 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-05-23 16:27:30,881 django.utils.autoreload INFO     Watching for file changes with StatReloader

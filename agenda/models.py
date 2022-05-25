@@ -74,3 +74,13 @@ class Agendamento(models.Model):
     cancelado = models.BooleanField(default=False)
     servico = models.ForeignKey(Servicos, on_delete=models.CASCADE)
     estabelecimento = models.ForeignKey(Estabelecimento, on_delete=models.CASCADE)
+
+
+class Endereco(models.Model):
+    estabelecimento = models.ForeignKey(Estabelecimento, on_delete=models.CASCADE)
+    cep = models.CharField(max_length=9)
+    estado = models.CharField(max_length=50)
+    cidade = models.CharField(max_length=50)
+    bairro = models.CharField(max_length=50)
+    rua = models.CharField(max_length=200)
+    complemento = models.CharField(max_length=50, blank=True)
