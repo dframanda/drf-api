@@ -3,6 +3,7 @@ from django.urls import path
 from agenda.views import (
     AgendamentoDetail,
     AgendamentoList,
+    EnderecoList,
     ServicosList,
     EstabelecimentoList,
     FuncionarioList,
@@ -20,4 +21,5 @@ urlpatterns = [
     path("funcionarios/", FuncionarioList.as_view()),
     path("estabelecimentos/", EstabelecimentoList.as_view()),
     path("servicos/", ServicosList.as_view()),
+    path("endereco/", EnderecoList.as_view()),
 ]

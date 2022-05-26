@@ -3,7 +3,7 @@ from typing import Iterable
 from datetime import date, datetime, timedelta, timezone
 
 import requests
-
+import logging
 from agenda.models import Agendamento
 from agenda.libs import brasil_api
 
@@ -40,3 +40,16 @@ def get_horarios_disponiveis(data: date) -> Iterable[datetime]:
             inicio = inicio + delta
 
     return horarios_disponiveis
+
+
+def verifica_cep(cep: str):
+    logging.info(f"Fazendo requisição para BrasilAPI com o CEP: {cep}")
+
+    r = requests.get(f"https://brasilapi.com.br/api/cep/v2/{cep}")
+
+    if not r.status_code == 200:
+        logging.error("Algum erro ocorreu na Brasil API")
+        return False
+
+    info = r.json()
+    return info

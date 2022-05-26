@@ -79,7 +79,7 @@ class Agendamento(models.Model):
 class Endereco(models.Model):
     estabelecimento = models.ForeignKey(Estabelecimento, on_delete=models.CASCADE)
     cep = models.CharField(max_length=9)
-    estado = models.CharField(max_length=50)
+    estado = models.CharField(max_length=2)
     cidade = models.CharField(max_length=50)
     bairro = models.CharField(max_length=50)
     rua = models.CharField(max_length=200)

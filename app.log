@@ -470,3 +470,969 @@ django.db.utils.IntegrityError: UNIQUE constraint failed: agenda_funcionarios.pr
 2022-05-04 21:58:47,128 urllib3.connectionpool DEBUG    https://brasilapi.com.br:443 "GET /api/feriados/v1/2022 HTTP/1.1" 200 None
 2022-05-22 22:24:12,663 django.utils.autoreload INFO     Watching for file changes with StatReloader
 2022-05-23 16:27:30,881 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-05-25 17:12:39,477 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-05-25 17:13:44,173 django.request ERROR    Internal Server Error: /api/endereco/
+Traceback (most recent call last):
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 416, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such table: agenda_endereco
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\generics.py", line 239, in get
+    return self.list(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\mixins.py", line 46, in list
+    return Response(serializer.data)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\serializers.py", line 768, in data
+    ret = super().data
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\serializers.py", line 686, in to_representation
+    return [
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\query.py", line 280, in __iter__
+    self._fetch_all()
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\query.py", line 1354, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\query.py", line 51, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1202, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 416, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such table: agenda_endereco
+2022-05-25 17:13:48,956 django.request ERROR    Internal Server Error: /api/endereco/
+Traceback (most recent call last):
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 416, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such table: agenda_endereco
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\generics.py", line 239, in get
+    return self.list(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\mixins.py", line 46, in list
+    return Response(serializer.data)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\serializers.py", line 768, in data
+    ret = super().data
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\serializers.py", line 686, in to_representation
+    return [
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\query.py", line 280, in __iter__
+    self._fetch_all()
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\query.py", line 1354, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\query.py", line 51, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1202, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 416, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such table: agenda_endereco
+2022-05-25 17:14:09,397 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\views.py changed, reloading.
+2022-05-25 17:14:10,368 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-05-25 17:16:22,101 django.request WARNING  Forbidden: /api/servicos/
+2022-05-25 17:16:29,389 django.request WARNING  Bad Request: /api/servicos/
+2022-05-25 17:16:39,326 django.request ERROR    Internal Server Error: /api/endereco/
+Traceback (most recent call last):
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\generics.py", line 242, in post
+    return self.create(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\mixins.py", line 24, in perform_create
+    serializer.save()
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\serializers.py", line 212, in save
+    self.instance = self.create(validated_data)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\serializers.py", line 962, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\query.py", line 455, in create
+    obj = self.model(**kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\base.py", line 489, in __init__
+    _setattr(self, field.name, rel_obj)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 215, in __set__
+    raise ValueError(
+ValueError: Cannot assign "'salão da maria'": "Endereco.estabelecimento" must be a "Estabelecimento" instance.
+2022-05-25 17:16:50,579 django.request ERROR    Internal Server Error: /api/endereco/
+Traceback (most recent call last):
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\generics.py", line 242, in post
+    return self.create(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\mixins.py", line 24, in perform_create
+    serializer.save()
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\serializers.py", line 212, in save
+    self.instance = self.create(validated_data)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\serializers.py", line 962, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\query.py", line 455, in create
+    obj = self.model(**kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\base.py", line 489, in __init__
+    _setattr(self, field.name, rel_obj)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 215, in __set__
+    raise ValueError(
+ValueError: Cannot assign "'salão da Maria'": "Endereco.estabelecimento" must be a "Estabelecimento" instance.
+2022-05-25 17:17:11,101 django.request ERROR    Internal Server Error: /api/endereco/
+Traceback (most recent call last):
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\generics.py", line 242, in post
+    return self.create(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\mixins.py", line 24, in perform_create
+    serializer.save()
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\serializers.py", line 212, in save
+    self.instance = self.create(validated_data)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\serializers.py", line 962, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\query.py", line 455, in create
+    obj = self.model(**kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\base.py", line 489, in __init__
+    _setattr(self, field.name, rel_obj)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 215, in __set__
+    raise ValueError(
+ValueError: Cannot assign "'Salão da Maria'": "Endereco.estabelecimento" must be a "Estabelecimento" instance.
+2022-05-25 17:21:07,272 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\serializers.py changed, reloading.
+2022-05-25 17:21:08,501 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-05-25 17:21:12,383 django.request ERROR    Internal Server Error: /api/endereco/
+Traceback (most recent call last):
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 416, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such table: agenda_endereco
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\generics.py", line 242, in post
+    return self.create(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\mixins.py", line 24, in perform_create
+    serializer.save()
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\serializers.py", line 212, in save
+    self.instance = self.create(validated_data)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\serializers.py", line 962, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\query.py", line 457, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\base.py", line 743, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\base.py", line 780, in save_base
+    updated = self._save_table(
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\base.py", line 885, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\base.py", line 923, in _do_insert
+    return manager._insert(
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\query.py", line 1301, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1441, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 416, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such table: agenda_endereco
+2022-05-25 17:21:16,187 django.request ERROR    Internal Server Error: /api/endereco/
+Traceback (most recent call last):
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 416, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such table: agenda_endereco
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\generics.py", line 242, in post
+    return self.create(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\mixins.py", line 24, in perform_create
+    serializer.save()
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\serializers.py", line 212, in save
+    self.instance = self.create(validated_data)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\serializers.py", line 962, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\query.py", line 457, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\base.py", line 743, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\base.py", line 780, in save_base
+    updated = self._save_table(
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\base.py", line 885, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\base.py", line 923, in _do_insert
+    return manager._insert(
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\query.py", line 1301, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1441, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 416, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such table: agenda_endereco
+2022-05-25 17:22:31,809 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\serializers.py changed, reloading.
+2022-05-25 17:22:33,286 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-05-25 22:38:33,833 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\serializers.py changed, reloading.
+2022-05-25 22:38:35,037 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-05-25 22:38:37,625 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\models.py changed, reloading.
+2022-05-25 22:38:39,815 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-05-26 12:13:19,874 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-05-26 12:13:50,865 django.request ERROR    Internal Server Error: /api/endereco/
+Traceback (most recent call last):
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\generics.py", line 242, in post
+    return self.create(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\serializers.py", line 227, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\serializers.py", line 426, in run_validation
+    value = self.to_internal_value(data)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\serializers.py", line 485, in to_internal_value
+    validated_value = validate_method(validated_value)
+  File "C:\Users\amand\python-cordarme\drf-api\agenda\serializers.py", line 249, in validate_cep
+    if value != verifica_cep:
+UnboundLocalError: local variable 'verifica_cep' referenced before assignment
+2022-05-26 12:14:35,997 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\serializers.py changed, reloading.
+2022-05-26 12:14:36,876 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-05-26 12:14:44,111 django.request ERROR    Internal Server Error: /api/endereco/
+Traceback (most recent call last):
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\generics.py", line 242, in post
+    return self.create(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\serializers.py", line 227, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\serializers.py", line 426, in run_validation
+    value = self.to_internal_value(data)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\serializers.py", line 485, in to_internal_value
+    validated_value = validate_method(validated_value)
+  File "C:\Users\amand\python-cordarme\drf-api\agenda\serializers.py", line 249, in validate_cep
+    if value != verifica_caracteres:
+UnboundLocalError: local variable 'verifica_caracteres' referenced before assignment
+2022-05-26 12:15:05,000 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\serializers.py changed, reloading.
+2022-05-26 12:15:06,587 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-05-26 12:15:08,834 root         INFO     Fazendo requisição para BrasilAPI com o CEP: 82710080
+2022-05-26 12:15:08,863 urllib3.connectionpool DEBUG    Starting new HTTPS connection (1): brasilapi.com.br:443
+2022-05-26 12:15:10,313 urllib3.connectionpool DEBUG    https://brasilapi.com.br:443 "GET /api/cep/v2/82710080 HTTP/1.1" 200 None
+2022-05-26 12:15:10,561 django.request ERROR    Internal Server Error: /api/endereco/
+Traceback (most recent call last):
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 416, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such table: agenda_endereco
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\generics.py", line 242, in post
+    return self.create(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\mixins.py", line 24, in perform_create
+    serializer.save()
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\serializers.py", line 212, in save
+    self.instance = self.create(validated_data)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\serializers.py", line 962, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\query.py", line 457, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\base.py", line 743, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\base.py", line 780, in save_base
+    updated = self._save_table(
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\base.py", line 885, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\base.py", line 923, in _do_insert
+    return manager._insert(
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\query.py", line 1301, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1441, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 416, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such table: agenda_endereco
+2022-05-26 12:17:11,785 root         INFO     Fazendo requisição para BrasilAPI com o CEP: 82710080
+2022-05-26 12:17:11,788 urllib3.connectionpool DEBUG    Starting new HTTPS connection (1): brasilapi.com.br:443
+2022-05-26 12:17:11,938 urllib3.connectionpool DEBUG    https://brasilapi.com.br:443 "GET /api/cep/v2/82710080 HTTP/1.1" 200 None
+2022-05-26 12:17:27,405 django.request WARNING  Bad Request: /api/endereco/
+2022-05-26 12:17:56,060 root         INFO     Fazendo requisição para BrasilAPI com o CEP: 82710099
+2022-05-26 12:17:56,063 urllib3.connectionpool DEBUG    Starting new HTTPS connection (1): brasilapi.com.br:443
+2022-05-26 12:18:18,205 urllib3.connectionpool DEBUG    https://brasilapi.com.br:443 "GET /api/cep/v2/82710099 HTTP/1.1" 404 None
+2022-05-26 12:18:18,207 root         ERROR    Algum erro ocorreu na Brasil API
+2022-05-26 12:18:18,211 django.request WARNING  Bad Request: /api/endereco/
+2022-05-26 12:20:24,424 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\models.py changed, reloading.
+2022-05-26 12:20:25,301 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-05-26 12:24:28,951 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\serializers.py changed, reloading.
+2022-05-26 12:24:29,951 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-05-26 12:24:31,986 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\serializers.py changed, reloading.
+2022-05-26 12:24:32,880 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-05-26 12:24:40,306 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\serializers.py changed, reloading.
+2022-05-26 12:24:41,096 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-05-26 12:25:17,327 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\serializers.py changed, reloading.
+2022-05-26 12:25:18,132 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-05-26 12:25:41,420 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\serializers.py changed, reloading.
+2022-05-26 12:25:42,566 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-05-26 12:26:03,769 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\serializers.py changed, reloading.
+2022-05-26 12:26:05,124 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-05-26 12:26:07,741 root         INFO     Fazendo requisição para BrasilAPI com o CEP: 82710099
+2022-05-26 12:26:07,747 urllib3.connectionpool DEBUG    Starting new HTTPS connection (1): brasilapi.com.br:443
+2022-05-26 12:26:07,942 urllib3.connectionpool DEBUG    https://brasilapi.com.br:443 "GET /api/cep/v2/82710099 HTTP/1.1" 404 None
+2022-05-26 12:26:07,944 root         ERROR    Algum erro ocorreu na Brasil API
+2022-05-26 12:26:07,946 django.request WARNING  Bad Request: /api/endereco/
+2022-05-26 12:26:22,991 root         INFO     Fazendo requisição para BrasilAPI com o CEP: 82710099
+2022-05-26 12:26:22,998 urllib3.connectionpool DEBUG    Starting new HTTPS connection (1): brasilapi.com.br:443
+2022-05-26 12:26:23,170 urllib3.connectionpool DEBUG    https://brasilapi.com.br:443 "GET /api/cep/v2/82710099 HTTP/1.1" 404 None
+2022-05-26 12:26:23,173 root         ERROR    Algum erro ocorreu na Brasil API
+2022-05-26 12:26:23,174 django.request WARNING  Bad Request: /api/endereco/
+2022-05-26 12:26:29,914 root         INFO     Fazendo requisição para BrasilAPI com o CEP: 82710099
+2022-05-26 12:26:29,916 urllib3.connectionpool DEBUG    Starting new HTTPS connection (1): brasilapi.com.br:443
+2022-05-26 12:26:30,046 urllib3.connectionpool DEBUG    https://brasilapi.com.br:443 "GET /api/cep/v2/82710099 HTTP/1.1" 404 None
+2022-05-26 12:26:30,054 root         ERROR    Algum erro ocorreu na Brasil API
+2022-05-26 12:26:30,056 django.request WARNING  Bad Request: /api/endereco/
+2022-05-26 12:26:40,993 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\serializers.py changed, reloading.
+2022-05-26 12:26:41,902 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-05-26 12:26:50,173 root         INFO     Fazendo requisição para BrasilAPI com o CEP: 82710099
+2022-05-26 12:26:50,179 urllib3.connectionpool DEBUG    Starting new HTTPS connection (1): brasilapi.com.br:443
+2022-05-26 12:26:50,333 urllib3.connectionpool DEBUG    https://brasilapi.com.br:443 "GET /api/cep/v2/82710099 HTTP/1.1" 404 None
+2022-05-26 12:26:50,339 root         ERROR    Algum erro ocorreu na Brasil API
+2022-05-26 12:26:50,341 django.request WARNING  Bad Request: /api/endereco/
+2022-05-26 12:27:09,972 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\serializers.py changed, reloading.
+2022-05-26 12:27:10,826 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-05-26 12:27:13,916 root         INFO     Fazendo requisição para BrasilAPI com o CEP: 82710099
+2022-05-26 12:27:13,924 urllib3.connectionpool DEBUG    Starting new HTTPS connection (1): brasilapi.com.br:443
+2022-05-26 12:27:35,128 urllib3.connectionpool DEBUG    https://brasilapi.com.br:443 "GET /api/cep/v2/82710099 HTTP/1.1" 404 None
+2022-05-26 12:27:35,130 root         ERROR    Algum erro ocorreu na Brasil API
+2022-05-26 12:27:35,132 django.request WARNING  Bad Request: /api/endereco/
+2022-05-26 12:27:42,486 root         INFO     Fazendo requisição para BrasilAPI com o CEP: 82710099
+2022-05-26 12:27:42,490 urllib3.connectionpool DEBUG    Starting new HTTPS connection (1): brasilapi.com.br:443
+2022-05-26 12:27:42,683 urllib3.connectionpool DEBUG    https://brasilapi.com.br:443 "GET /api/cep/v2/82710099 HTTP/1.1" 404 None
+2022-05-26 12:27:42,688 root         ERROR    Algum erro ocorreu na Brasil API
+2022-05-26 12:27:42,690 django.request WARNING  Bad Request: /api/endereco/
+2022-05-26 12:29:00,513 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\serializers.py changed, reloading.
+2022-05-26 12:29:01,467 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-05-26 12:29:06,705 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\serializers.py changed, reloading.
+2022-05-26 12:29:07,518 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-05-26 12:30:50,513 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\serializers.py changed, reloading.
+2022-05-26 12:30:51,355 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-05-26 12:36:18,755 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\serializers.py changed, reloading.
+2022-05-26 12:36:19,790 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-05-26 12:38:16,944 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\serializers.py changed, reloading.
+2022-05-26 12:38:18,212 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-05-26 12:40:18,247 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\serializers.py changed, reloading.
+2022-05-26 12:40:19,123 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-05-26 12:42:03,785 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\serializers.py changed, reloading.
+2022-05-26 12:42:04,711 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-05-26 12:42:34,292 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\serializers.py changed, reloading.
+2022-05-26 12:42:35,223 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-05-26 12:42:46,964 root         INFO     Fazendo requisição para BrasilAPI com o CEP: 82710099
+2022-05-26 12:42:46,970 urllib3.connectionpool DEBUG    Starting new HTTPS connection (1): brasilapi.com.br:443
+2022-05-26 12:42:47,130 urllib3.connectionpool DEBUG    https://brasilapi.com.br:443 "GET /api/cep/v2/82710099 HTTP/1.1" 404 None
+2022-05-26 12:42:47,134 root         ERROR    Algum erro ocorreu na Brasil API
+2022-05-26 12:42:47,136 django.request WARNING  Bad Request: /api/endereco/
+2022-05-26 12:43:05,511 root         INFO     Fazendo requisição para BrasilAPI com o CEP: 82710080
+2022-05-26 12:43:05,515 urllib3.connectionpool DEBUG    Starting new HTTPS connection (1): brasilapi.com.br:443
+2022-05-26 12:43:05,629 urllib3.connectionpool DEBUG    https://brasilapi.com.br:443 "GET /api/cep/v2/82710080 HTTP/1.1" 200 None
+2022-05-26 12:43:05,632 root         INFO     Fazendo requisição para BrasilAPI com o CEP: 82710080
+2022-05-26 12:43:05,638 urllib3.connectionpool DEBUG    Starting new HTTPS connection (1): brasilapi.com.br:443
+2022-05-26 12:43:05,797 urllib3.connectionpool DEBUG    https://brasilapi.com.br:443 "GET /api/cep/v2/82710080 HTTP/1.1" 200 None
+2022-05-26 12:43:05,874 django.request ERROR    Internal Server Error: /api/endereco/
+Traceback (most recent call last):
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\generics.py", line 242, in post
+    return self.create(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\serializers.py", line 227, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\serializers.py", line 429, in run_validation
+    value = self.validate(value)
+  File "C:\Users\amand\python-cordarme\drf-api\agenda\serializers.py", line 318, in validate
+    verifica_estado = verifica_valores["estado"]
+KeyError: 'estado'
+2022-05-26 12:44:19,093 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\serializers.py changed, reloading.
+2022-05-26 12:44:20,015 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-05-26 12:47:59,486 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\serializers.py changed, reloading.
+2022-05-26 12:48:00,507 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-05-26 12:48:06,221 root         INFO     Fazendo requisição para BrasilAPI com o CEP: 82710080
+2022-05-26 12:48:06,227 urllib3.connectionpool DEBUG    Starting new HTTPS connection (1): brasilapi.com.br:443
+2022-05-26 12:48:27,486 urllib3.connectionpool DEBUG    https://brasilapi.com.br:443 "GET /api/cep/v2/82710080 HTTP/1.1" 200 None
+2022-05-26 12:48:27,488 root         INFO     Fazendo requisição para BrasilAPI com o CEP: 82710080
+2022-05-26 12:48:27,492 urllib3.connectionpool DEBUG    Starting new HTTPS connection (1): brasilapi.com.br:443
+2022-05-26 12:48:27,630 urllib3.connectionpool DEBUG    https://brasilapi.com.br:443 "GET /api/cep/v2/82710080 HTTP/1.1" 200 None
+2022-05-26 12:48:27,723 django.request ERROR    Internal Server Error: /api/endereco/
+Traceback (most recent call last):
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 416, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.IntegrityError: NOT NULL constraint failed: agenda_endereco.cidade
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\generics.py", line 242, in post
+    return self.create(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\mixins.py", line 24, in perform_create
+    serializer.save()
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\serializers.py", line 212, in save
+    self.instance = self.create(validated_data)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\serializers.py", line 962, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\query.py", line 457, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\base.py", line 743, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\base.py", line 780, in save_base
+    updated = self._save_table(
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\base.py", line 885, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\base.py", line 923, in _do_insert
+    return manager._insert(
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\query.py", line 1301, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1441, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 416, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.IntegrityError: NOT NULL constraint failed: agenda_endereco.cidade
+2022-05-26 12:51:35,633 root         INFO     Fazendo requisição para BrasilAPI com o CEP: 82710080
+2022-05-26 12:51:35,636 urllib3.connectionpool DEBUG    Starting new HTTPS connection (1): brasilapi.com.br:443
+2022-05-26 12:51:35,805 urllib3.connectionpool DEBUG    https://brasilapi.com.br:443 "GET /api/cep/v2/82710080 HTTP/1.1" 200 None
+2022-05-26 12:51:35,816 root         INFO     Fazendo requisição para BrasilAPI com o CEP: 82710080
+2022-05-26 12:51:35,819 urllib3.connectionpool DEBUG    Starting new HTTPS connection (1): brasilapi.com.br:443
+2022-05-26 12:51:35,959 urllib3.connectionpool DEBUG    https://brasilapi.com.br:443 "GET /api/cep/v2/82710080 HTTP/1.1" 200 None
+2022-05-26 12:51:36,067 django.request ERROR    Internal Server Error: /api/endereco/
+Traceback (most recent call last):
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 416, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.IntegrityError: NOT NULL constraint failed: agenda_endereco.cidade
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\generics.py", line 242, in post
+    return self.create(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\mixins.py", line 24, in perform_create
+    serializer.save()
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\serializers.py", line 212, in save
+    self.instance = self.create(validated_data)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\serializers.py", line 962, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\query.py", line 457, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\base.py", line 743, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\base.py", line 780, in save_base
+    updated = self._save_table(
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\base.py", line 885, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\base.py", line 923, in _do_insert
+    return manager._insert(
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\query.py", line 1301, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1441, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 416, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.IntegrityError: NOT NULL constraint failed: agenda_endereco.cidade
+2022-05-26 12:51:44,186 root         INFO     Fazendo requisição para BrasilAPI com o CEP: 82710080
+2022-05-26 12:51:44,189 urllib3.connectionpool DEBUG    Starting new HTTPS connection (1): brasilapi.com.br:443
+2022-05-26 12:51:44,327 urllib3.connectionpool DEBUG    https://brasilapi.com.br:443 "GET /api/cep/v2/82710080 HTTP/1.1" 200 None
+2022-05-26 12:51:44,331 root         INFO     Fazendo requisição para BrasilAPI com o CEP: 82710080
+2022-05-26 12:51:44,334 urllib3.connectionpool DEBUG    Starting new HTTPS connection (1): brasilapi.com.br:443
+2022-05-26 12:51:44,484 urllib3.connectionpool DEBUG    https://brasilapi.com.br:443 "GET /api/cep/v2/82710080 HTTP/1.1" 200 None
+2022-05-26 12:51:44,586 django.request ERROR    Internal Server Error: /api/endereco/
+Traceback (most recent call last):
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 416, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.IntegrityError: NOT NULL constraint failed: agenda_endereco.cidade
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\generics.py", line 242, in post
+    return self.create(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\mixins.py", line 24, in perform_create
+    serializer.save()
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\serializers.py", line 212, in save
+    self.instance = self.create(validated_data)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\serializers.py", line 962, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\query.py", line 457, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\base.py", line 743, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\base.py", line 780, in save_base
+    updated = self._save_table(
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\base.py", line 885, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\base.py", line 923, in _do_insert
+    return manager._insert(
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\query.py", line 1301, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1441, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 416, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.IntegrityError: NOT NULL constraint failed: agenda_endereco.cidade
+2022-05-26 12:55:47,954 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\serializers.py changed, reloading.
+2022-05-26 12:55:49,004 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-05-26 12:55:51,081 root         INFO     Fazendo requisição para BrasilAPI com o CEP: 82710080
+2022-05-26 12:55:51,088 urllib3.connectionpool DEBUG    Starting new HTTPS connection (1): brasilapi.com.br:443
+2022-05-26 12:55:51,270 urllib3.connectionpool DEBUG    https://brasilapi.com.br:443 "GET /api/cep/v2/82710080 HTTP/1.1" 200 None
+2022-05-26 12:55:51,280 root         INFO     Fazendo requisição para BrasilAPI com o CEP: 82710080
+2022-05-26 12:55:51,283 urllib3.connectionpool DEBUG    Starting new HTTPS connection (1): brasilapi.com.br:443
+2022-05-26 12:55:51,428 urllib3.connectionpool DEBUG    https://brasilapi.com.br:443 "GET /api/cep/v2/82710080 HTTP/1.1" 200 None
+2022-05-26 12:55:51,515 django.request ERROR    Internal Server Error: /api/endereco/
+Traceback (most recent call last):
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 416, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.IntegrityError: NOT NULL constraint failed: agenda_endereco.bairro
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\generics.py", line 242, in post
+    return self.create(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\mixins.py", line 24, in perform_create
+    serializer.save()
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\serializers.py", line 212, in save
+    self.instance = self.create(validated_data)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\serializers.py", line 962, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\query.py", line 457, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\base.py", line 743, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\base.py", line 780, in save_base
+    updated = self._save_table(
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\base.py", line 885, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\base.py", line 923, in _do_insert
+    return manager._insert(
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\query.py", line 1301, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1441, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 416, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.IntegrityError: NOT NULL constraint failed: agenda_endereco.bairro
+2022-05-26 12:56:16,412 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\serializers.py changed, reloading.
+2022-05-26 12:56:17,448 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-05-26 12:56:33,522 root         INFO     Fazendo requisição para BrasilAPI com o CEP: 82710080
+2022-05-26 12:56:33,531 urllib3.connectionpool DEBUG    Starting new HTTPS connection (1): brasilapi.com.br:443
+2022-05-26 12:56:33,699 urllib3.connectionpool DEBUG    https://brasilapi.com.br:443 "GET /api/cep/v2/82710080 HTTP/1.1" 200 None
+2022-05-26 12:56:33,703 root         INFO     Fazendo requisição para BrasilAPI com o CEP: 82710080
+2022-05-26 12:56:33,707 urllib3.connectionpool DEBUG    Starting new HTTPS connection (1): brasilapi.com.br:443
+2022-05-26 12:56:33,850 urllib3.connectionpool DEBUG    https://brasilapi.com.br:443 "GET /api/cep/v2/82710080 HTTP/1.1" 200 None
+2022-05-26 12:56:33,854 root         WARNING  Bairro informado não coincide com o CEP!
+2022-05-26 12:56:33,855 root         WARNING  Rua informada não coincide com o CEP!
+2022-05-26 12:56:55,394 root         INFO     Fazendo requisição para BrasilAPI com o CEP: 82710080
+2022-05-26 12:56:55,397 urllib3.connectionpool DEBUG    Starting new HTTPS connection (1): brasilapi.com.br:443
+2022-05-26 12:57:16,598 urllib3.connectionpool DEBUG    https://brasilapi.com.br:443 "GET /api/cep/v2/82710080 HTTP/1.1" 200 None
+2022-05-26 12:57:16,604 root         INFO     Fazendo requisição para BrasilAPI com o CEP: 82710080
+2022-05-26 12:57:16,607 urllib3.connectionpool DEBUG    Starting new HTTPS connection (1): brasilapi.com.br:443
+2022-05-26 12:57:16,769 urllib3.connectionpool DEBUG    https://brasilapi.com.br:443 "GET /api/cep/v2/82710080 HTTP/1.1" 200 None
+2022-05-26 12:57:16,773 root         WARNING  Rua informada não coincide com o CEP!
+2022-05-26 12:58:51,921 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\utils.py changed, reloading.
+2022-05-26 12:58:53,025 django.utils.autoreload INFO     Watching for file changes with StatReloader

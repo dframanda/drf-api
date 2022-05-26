@@ -2,6 +2,7 @@ import re
 from datetime import datetime, timedelta, tzinfo
 from time import time
 from urllib import request
+import logging
 
 from django.contrib.auth.models import User
 from django.utils import timezone
@@ -9,12 +10,13 @@ from rest_framework import serializers
 from django.core.exceptions import ObjectDoesNotExist
 from agenda.models import (
     Agendamento,
+    Endereco,
     Estabelecimento,
     Fidelidade,
     Funcionarios,
     Servicos,
 )
-from agenda.utils import get_horarios_disponiveis
+from agenda.utils import get_horarios_disponiveis, verifica_cep
 
 
 class AgendamentoSerializer(serializers.ModelSerializer):
@@ -212,5 +214,130 @@ class ServicosSerializer(serializers.ModelSerializer):
 
         if Servicos.objects.filter(servico=servico_request).exists():
             raise serializers.ValidationError("O serviço informado já existe!")
+
+        return attrs
+
+
+class EnderecoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Endereco
+        fields = "__all__"
+
+    estabelecimento = serializers.CharField()
+    estado = serializers.CharField(default="")
+    cidade = serializers.CharField(default="")
+    bairro = serializers.CharField(default="")
+    rua = serializers.CharField(default="")
+
+    def validate_estabelecimento(self, value):
+        try:
+            estabelecimento_obj = Estabelecimento.objects.filter(
+                nome_estabelecimento=value
+            )
+        except not estabelecimento_obj.exists():
+            raise serializers.ValidationError(
+                "O estabelecimento informado não foi encontrado!"
+            )
+
+        return estabelecimento_obj.first()
+
+    def validate_cep(self, value):
+        verifica_caracteres = re.sub(r"[^0-9]", "", value)
+
+        if value == "":
+            raise serializers.ValidationError("O CEP precisa ser informado.")
+
+        if value != verifica_caracteres:
+            raise serializers.ValidationError(
+                "O CEP precisa ser composto apenas por números!"
+            )
+
+        if len(value) != 8:
+            raise serializers.ValidationError("O CEP deve ter 8 digítos!")
+
+        validacao_cep = verifica_cep(value)
+
+        if not validacao_cep:
+            raise serializers.ValidationError("O CEP informado não é válido!")
+
+        return value
+
+    def validate_estado(self, value):
+        if value == "":
+            return value
+
+        if len(value) != 2:
+            raise serializers.ValidationError("Você deve informar a sigla do Estado!")
+
+        verifica_caracteres = re.sub(r"[^A-Za-z]", "", value)
+
+        if value != verifica_caracteres:
+            raise serializers.ValidationError(
+                "A sigla do Estado precisa ser composta apenas por letras!"
+            )
+
+        return value
+
+    def validate_cidade(self, value):
+        if value == "":
+            return value
+
+        verifica_caracteres = re.sub(r"[^A-Za-z]", "", value)
+
+        if value != verifica_caracteres:
+            raise serializers.ValidationError(
+                "A nome da cidade precisa ser composto apenas por letras!"
+            )
+
+        return value
+
+    def validate_bairro(self, value):
+        if value == "":
+            return value
+
+        verifica_caracteres = re.sub(r"[^A-Za-z]", "", value)
+
+        if value != verifica_caracteres:
+            raise serializers.ValidationError(
+                "O nome do bairro precisa ser composto apenas por letras!"
+            )
+
+        return value
+
+    def validate_rua(self, value):
+        return value
+
+    def validate_complemento(self, value):
+        return value
+
+    def validate(self, attrs):
+        cep = attrs.get("cep", None)
+        estado = attrs.get("estado", None)
+        cidade = attrs.get("cidade", None)
+        bairro = attrs.get("bairro", None)
+        rua = attrs.get("rua", None)
+
+        verifica_valores = verifica_cep(cep)
+
+        verifica_estado = verifica_valores["state"]
+        verifica_cidade = verifica_valores["city"]
+        verifica_bairro = verifica_valores["neighborhood"]
+        verifica_rua = verifica_valores["street"]
+
+        if cep and rua and cidade and bairro and rua:
+            if estado != verifica_estado:
+                logging.warning("Estado informado não coincide com o CEP!")
+            if cidade != verifica_cidade:
+                logging.warning("Cidade informada não coincide com o CEP!")
+            if bairro != verifica_bairro:
+                logging.warning("Bairro informado não coincide com o CEP!")
+            if rua != verifica_rua:
+                logging.warning("Rua informada não coincide com o CEP!")
+
+        if not estado and cidade and bairro and rua:
+            attrs["state"] = verifica_estado
+            attrs["city"] = verifica_cidade
+            attrs["neighborhood"] = verifica_bairro
+            attrs["street"] = verifica_rua
 
         return attrs

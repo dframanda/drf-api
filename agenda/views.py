@@ -10,6 +10,7 @@ from rest_framework.decorators import api_view
 
 from agenda.models import (
     Agendamento,
+    Endereco,
     Fidelidade,
     Funcionarios,
     Estabelecimento,
@@ -17,6 +18,7 @@ from agenda.models import (
 )
 from agenda.serializers import (
     AgendamentoSerializer,
+    EnderecoSerializer,
     EstabelecimentoSerializer,
     FidelidadeSerializer,
     FuncionarioSerializer,
@@ -192,6 +194,14 @@ class ServicosList(generics.ListCreateAPIView):
 
     def get_queryset(self):
         return Servicos.objects.all()
+
+
+class EnderecoList(generics.ListCreateAPIView):
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    serializer_class = EnderecoSerializer
+
+    def get_queryset(self):
+        return Endereco.objects.all()
 
 
 @api_view(http_method_names=["GET"])
