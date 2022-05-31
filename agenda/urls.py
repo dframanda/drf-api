@@ -10,6 +10,7 @@ from agenda.views import (
     PrestadorList,
     FidelidadeList,
     get_horarios,
+    healthcheck,
 )
 
 urlpatterns = [
@@ -22,4 +23,5 @@ urlpatterns = [
     path("estabelecimentos/", EstabelecimentoList.as_view()),
     path("servicos/", ServicosList.as_view()),
     path("endereco/", EnderecoList.as_view()),
+    path("", healthcheck),
 ]

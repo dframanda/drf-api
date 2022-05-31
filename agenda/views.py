@@ -5,6 +5,7 @@ from django.utils import timezone
 
 from django.contrib.auth.models import User
 from django.http import JsonResponse
+from requests import Response
 from rest_framework import generics, permissions
 from rest_framework.decorators import api_view
 
@@ -214,3 +215,8 @@ def get_horarios(request):
 
     horarios_disponiveis = sorted(list(get_horarios_disponiveis(data)))
     return JsonResponse(horarios_disponiveis, safe=False)
+
+
+@api_view(http_method_names=["GET"])
+def healthcheck(request):
+    return Response({"status": "OK"}, status=200)
