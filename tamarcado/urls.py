@@ -19,6 +19,7 @@ from django.conf.urls import include
 from agenda.urls import urlpatterns as agenda_urls
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('api/', include(agenda_urls))
+    path("admin/", admin.site.urls),
+    path("api/", include(agenda_urls)),
+    path("api-auth/", include("rest_framework.urls")),
 ]
