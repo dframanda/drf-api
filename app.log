@@ -1811,3 +1811,19 @@ django.db.utils.IntegrityError: UNIQUE constraint failed: auth_user.username
 2022-06-09 12:33:25,476 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\views.py changed, reloading.
 2022-06-09 12:33:26,475 django.utils.autoreload INFO     Watching for file changes with StatReloader
 2022-06-09 12:33:26,493 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-06-09 12:36:51,482 django.request WARNING  Forbidden: /api/users/
+2022-06-09 12:36:53,096 django.request WARNING  Forbidden: /api/users/
+2022-06-09 12:36:58,177 django.request WARNING  Forbidden: /api/users/
+2022-06-09 12:39:38,515 django.request WARNING  Forbidden: /api/users/
+2022-06-09 12:39:40,015 django.request WARNING  Forbidden: /api/users/
+2022-06-09 12:39:52,210 django.request WARNING  Forbidden: /api/users/
+2022-06-09 12:40:03,817 django.request WARNING  Forbidden: /api/users/
+2022-06-09 12:40:08,969 django.request WARNING  Forbidden: /api/users/
+2022-06-09 12:40:28,662 django.request WARNING  Forbidden: /api/users/
+2022-06-09 12:40:32,240 django.request WARNING  Forbidden: /api/users/
+2022-06-09 12:40:53,339 django.request WARNING  Forbidden: /api/users/
+2022-06-09 12:41:00,041 django.request WARNING  Forbidden: /api/users/
+2022-06-09 12:41:07,234 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\urls.py changed, reloading.
+2022-06-09 12:41:07,943 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\urls.py changed, reloading.
+2022-06-09 12:41:08,396 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-06-09 12:41:08,867 django.utils.autoreload INFO     Watching for file changes with StatReloader

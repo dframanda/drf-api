@@ -219,6 +219,7 @@ def get_horarios(request):
 
 @api_view(http_method_names=["GET"])
 def healthcheck(request):
+    raise ValueError("bug introduzido!")
     return Response({"status": "OK"}, status=200)
 
 
