@@ -219,7 +219,7 @@ def get_horarios(request):
 
 @api_view(http_method_names=["GET"])
 def healthcheck(request):
-    return Response({"status": "OK"}, status=200)
+    return Response({"status": "OK", "response": "Deployado!"}, status=200)
 
 
 @api_view(http_method_names=["GET", "POST"])
