@@ -6,7 +6,7 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 from django.http import JsonResponse
 from rest_framework.response import Response
-from rest_framework import generics, permissions
+from rest_framework import generics, permissions, serializers
 from rest_framework.decorators import api_view
 
 from agenda.models import (
@@ -220,3 +220,56 @@ def get_horarios(request):
 @api_view(http_method_names=["GET"])
 def healthcheck(request):
     return Response({"status": "OK"}, status=200)
+
+
+@api_view(http_method_names=["GET", "POST"])
+def users(request):
+    if request.method == "POST":
+        data = request.data
+        username = data["username"]
+        senha = data["senha"]
+        email = data["email"]
+
+        if not username:
+            raise serializers.ValidationError("É necessário informar o nome de usuário")
+
+        if not senha:
+            raise serializers.ValidationError("É necessário informar uma senha!")
+
+        if not email:
+            raise serializers.ValidationError("É necessário informar um email!")
+
+        if User.objects.filter(username=username).exists():
+            raise serializers.ValidationError("Nome de usuário já existe!")
+
+        if User.objects.filter(email=email).exists():
+            raise serializers.ValidationError("Email já existe!")
+
+        user_obj = User.objects.create_user(
+            username=username, password=senha, email=email, is_staff=False
+        )
+
+        obj = {
+            "id": user_obj.id,
+            "username": user_obj.username,
+            "email": user_obj.email,
+            "is_staff": user_obj.is_staff,
+        }
+
+        return JsonResponse(obj, safe=False)
+
+    if request.method == "GET":
+        qs = User.objects.all()
+        users_list = []
+
+        for user in qs:
+            users_list.append(
+                {
+                    "id": user.id,
+                    "username": user.username,
+                    "email": user.email,
+                    "is_staff": user.is_staff,
+                }
+            )
+
+        return JsonResponse(users_list, safe=False)

@@ -11,6 +11,7 @@ from agenda.views import (
     FidelidadeList,
     get_horarios,
     healthcheck,
+    users,
 )
 
 urlpatterns = [
@@ -24,4 +25,5 @@ urlpatterns = [
     path("servicos/", ServicosList.as_view()),
     path("endereco/", EnderecoList.as_view()),
     path("", healthcheck),
+    path("users/", users),
 ]

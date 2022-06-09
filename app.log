@@ -1436,3 +1436,378 @@ django.db.utils.IntegrityError: NOT NULL constraint failed: agenda_endereco.bair
 2022-05-26 12:57:16,773 root         WARNING  Rua informada não coincide com o CEP!
 2022-05-26 12:58:51,921 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\utils.py changed, reloading.
 2022-05-26 12:58:53,025 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-06-09 11:37:13,193 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-06-09 12:04:25,528 asyncio      DEBUG    Using proactor: IocpProactor
+2022-06-09 12:04:26,007 asyncio      DEBUG    Using proactor: IocpProactor
+2022-06-09 12:08:53,196 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\views.py changed, reloading.
+2022-06-09 12:08:54,121 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-06-09 12:12:55,726 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\views.py changed, reloading.
+2022-06-09 12:12:56,601 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-06-09 12:13:06,486 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\views.py changed, reloading.
+2022-06-09 12:13:07,281 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-06-09 12:13:15,987 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\views.py changed, reloading.
+2022-06-09 12:13:16,789 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-06-09 12:13:34,171 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-06-09 12:14:17,505 django.request WARNING  Not Found: /api/users/
+2022-06-09 12:14:25,871 django.request WARNING  Not Found: /api/users/
+2022-06-09 12:14:32,265 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\urls.py changed, reloading.
+2022-06-09 12:14:32,691 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\urls.py changed, reloading.
+2022-06-09 12:14:33,354 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-06-09 12:14:33,934 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-06-09 12:14:36,116 django.request WARNING  Forbidden: /api/users/
+2022-06-09 12:14:52,706 django.request WARNING  Forbidden: /api/users/
+2022-06-09 12:15:03,359 django.request ERROR    Internal Server Error: /api/users/
+Traceback (most recent call last):
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\agenda\views.py", line 247, in users
+    qs = users.objects.all()
+AttributeError: 'function' object has no attribute 'objects'
+2022-06-09 12:15:07,149 django.request ERROR    Internal Server Error: /api/users/
+Traceback (most recent call last):
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\agenda\views.py", line 247, in users
+    qs = users.objects.all()
+AttributeError: 'function' object has no attribute 'objects'
+2022-06-09 12:15:35,813 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\views.py changed, reloading.
+2022-06-09 12:15:35,841 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\views.py changed, reloading.
+2022-06-09 12:15:36,725 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-06-09 12:15:36,753 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-06-09 12:15:41,099 django.request ERROR    Internal Server Error: /api/users/
+Traceback (most recent call last):
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\agenda\views.py", line 255, in users
+    return JsonResponse(users_list)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\http\response.py", line 599, in __init__
+    raise TypeError(
+TypeError: In order to allow non-dict objects to be serialized set the safe parameter to False.
+2022-06-09 12:15:46,782 django.request ERROR    Internal Server Error: /api/users/
+Traceback (most recent call last):
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\agenda\views.py", line 255, in users
+    return JsonResponse(users_list)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\http\response.py", line 599, in __init__
+    raise TypeError(
+TypeError: In order to allow non-dict objects to be serialized set the safe parameter to False.
+2022-06-09 12:16:03,377 django.request ERROR    Internal Server Error: /api/users/
+Traceback (most recent call last):
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\agenda\views.py", line 255, in users
+    return JsonResponse(users_list)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\http\response.py", line 599, in __init__
+    raise TypeError(
+TypeError: In order to allow non-dict objects to be serialized set the safe parameter to False.
+2022-06-09 12:16:10,929 django.request ERROR    Internal Server Error: /api/users/
+Traceback (most recent call last):
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\agenda\views.py", line 255, in users
+    return JsonResponse(users_list)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\http\response.py", line 599, in __init__
+    raise TypeError(
+TypeError: In order to allow non-dict objects to be serialized set the safe parameter to False.
+2022-06-09 12:16:14,875 django.request WARNING  Forbidden: /api/users/
+2022-06-09 12:16:22,608 django.request ERROR    Internal Server Error: /api/users/
+Traceback (most recent call last):
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\agenda\views.py", line 255, in users
+    return JsonResponse(users_list)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\http\response.py", line 599, in __init__
+    raise TypeError(
+TypeError: In order to allow non-dict objects to be serialized set the safe parameter to False.
+2022-06-09 12:17:11,319 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\views.py changed, reloading.
+2022-06-09 12:17:11,803 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\views.py changed, reloading.
+2022-06-09 12:17:12,446 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-06-09 12:17:12,843 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-06-09 12:19:45,428 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\views.py changed, reloading.
+2022-06-09 12:19:45,468 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\views.py changed, reloading.
+2022-06-09 12:19:46,369 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-06-09 12:19:46,391 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-06-09 12:20:30,254 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\views.py changed, reloading.
+2022-06-09 12:20:30,271 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\views.py changed, reloading.
+2022-06-09 12:20:31,303 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-06-09 12:20:31,305 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-06-09 12:20:42,684 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\views.py changed, reloading.
+2022-06-09 12:20:43,018 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\views.py changed, reloading.
+2022-06-09 12:20:43,670 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-06-09 12:20:43,962 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-06-09 12:28:30,290 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\views.py changed, reloading.
+2022-06-09 12:28:31,112 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-06-09 12:28:31,167 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\views.py changed, reloading.
+2022-06-09 12:28:32,019 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-06-09 12:30:38,750 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\views.py changed, reloading.
+2022-06-09 12:30:38,861 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\views.py changed, reloading.
+2022-06-09 12:30:39,577 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-06-09 12:30:39,700 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-06-09 12:31:22,619 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\views.py changed, reloading.
+2022-06-09 12:31:22,970 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\views.py changed, reloading.
+2022-06-09 12:31:23,687 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-06-09 12:31:23,978 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-06-09 12:31:34,072 django.request ERROR    Internal Server Error: /api/users/
+Traceback (most recent call last):
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 416, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.IntegrityError: UNIQUE constraint failed: auth_user.username
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\agenda\views.py", line 233, in users
+    user_obj = User.objects.create_user(
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\contrib\auth\models.py", line 152, in create_user
+    return self._create_user(username, email, password, **extra_fields)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\contrib\auth\models.py", line 146, in _create_user
+    user.save(using=self._db)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\contrib\auth\base_user.py", line 66, in save
+    super().save(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\base.py", line 743, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\base.py", line 780, in save_base
+    updated = self._save_table(
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\base.py", line 885, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\base.py", line 923, in _do_insert
+    return manager._insert(
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\query.py", line 1301, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1441, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 416, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.IntegrityError: UNIQUE constraint failed: auth_user.username
+2022-06-09 12:31:40,212 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\views.py changed, reloading.
+2022-06-09 12:31:40,639 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\views.py changed, reloading.
+2022-06-09 12:31:41,315 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-06-09 12:31:41,786 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-06-09 12:31:46,645 django.request ERROR    Internal Server Error: /api/users/
+Traceback (most recent call last):
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 416, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.IntegrityError: UNIQUE constraint failed: auth_user.username
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\agenda\views.py", line 233, in users
+    user_obj = User.objects.create_user(
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\contrib\auth\models.py", line 152, in create_user
+    return self._create_user(username, email, password, **extra_fields)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\contrib\auth\models.py", line 146, in _create_user
+    user.save(using=self._db)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\contrib\auth\base_user.py", line 66, in save
+    super().save(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\base.py", line 743, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\base.py", line 780, in save_base
+    updated = self._save_table(
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\base.py", line 885, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\base.py", line 923, in _do_insert
+    return manager._insert(
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\query.py", line 1301, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1441, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\amand\python-cordarme\drf-api\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 416, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.IntegrityError: UNIQUE constraint failed: auth_user.username
+2022-06-09 12:32:22,531 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\views.py changed, reloading.
+2022-06-09 12:32:22,596 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\views.py changed, reloading.
+2022-06-09 12:32:23,599 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-06-09 12:32:23,627 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-06-09 12:32:24,415 django.request WARNING  Bad Request: /api/users/
+2022-06-09 12:32:32,338 django.request WARNING  Bad Request: /api/users/
+2022-06-09 12:32:47,485 django.request WARNING  Bad Request: /api/users/
+2022-06-09 12:32:58,935 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\views.py changed, reloading.
+2022-06-09 12:32:59,026 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\views.py changed, reloading.
+2022-06-09 12:33:00,048 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-06-09 12:33:00,182 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-06-09 12:33:25,438 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\views.py changed, reloading.
+2022-06-09 12:33:25,476 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\views.py changed, reloading.
+2022-06-09 12:33:26,475 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-06-09 12:33:26,493 django.utils.autoreload INFO     Watching for file changes with StatReloader
