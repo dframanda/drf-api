@@ -1827,3 +1827,96 @@ django.db.utils.IntegrityError: UNIQUE constraint failed: auth_user.username
 2022-06-09 12:41:07,943 django.utils.autoreload INFO     C:\Users\amand\python-cordarme\drf-api\agenda\urls.py changed, reloading.
 2022-06-09 12:41:08,396 django.utils.autoreload INFO     Watching for file changes with StatReloader
 2022-06-09 12:41:08,867 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-06-15 21:29:07,476 django.request WARNING  Forbidden: /api/agendamentos/
+2022-06-15 21:29:07,542 django.request WARNING  Bad Request: /api/agendamentos/
+2022-06-15 21:29:07,557 root         INFO     Fazendo requisição para BrasilAPI para a data: 2023-12-20
+2022-06-15 21:29:07,617 urllib3.connectionpool DEBUG    Starting new HTTPS connection (1): brasilapi.com.br:443
+2022-06-15 21:29:07,847 urllib3.connectionpool DEBUG    https://brasilapi.com.br:443 "GET /api/feriados/v1/2023 HTTP/1.1" 200 None
+2022-06-15 21:29:07,866 root         INFO     Fazendo requisição para BrasilAPI para a data: 2023-12-20
+2022-06-15 21:29:07,869 urllib3.connectionpool DEBUG    Starting new HTTPS connection (1): brasilapi.com.br:443
+2022-06-15 21:29:07,976 urllib3.connectionpool DEBUG    https://brasilapi.com.br:443 "GET /api/feriados/v1/2023 HTTP/1.1" 200 None
+2022-06-15 21:29:08,004 django.request WARNING  Bad Request: /api/agendamentos/
+2022-06-15 21:29:08,024 root         INFO     Fazendo requisição para BrasilAPI para a data: 2023-12-20
+2022-06-15 21:29:08,032 urllib3.connectionpool DEBUG    Starting new HTTPS connection (1): brasilapi.com.br:443
+2022-06-15 21:29:08,113 urllib3.connectionpool DEBUG    https://brasilapi.com.br:443 "GET /api/feriados/v1/2023 HTTP/1.1" 200 None
+2022-06-15 21:29:08,149 root         INFO     Fazendo requisição para BrasilAPI para a data: 2023-12-20
+2022-06-15 21:29:08,154 urllib3.connectionpool DEBUG    Starting new HTTPS connection (1): brasilapi.com.br:443
+2022-06-15 21:29:08,238 urllib3.connectionpool DEBUG    https://brasilapi.com.br:443 "GET /api/feriados/v1/2023 HTTP/1.1" 200 None
+2022-06-15 21:29:08,273 django.request WARNING  Bad Request: /api/agendamentos/
+2022-06-15 21:29:08,297 root         INFO     Fazendo requisição para BrasilAPI para a data: 2023-12-20
+2022-06-15 21:29:08,304 urllib3.connectionpool DEBUG    Starting new HTTPS connection (1): brasilapi.com.br:443
+2022-06-15 21:29:08,400 urllib3.connectionpool DEBUG    https://brasilapi.com.br:443 "GET /api/feriados/v1/2023 HTTP/1.1" 200 None
+2022-06-15 21:29:08,446 root         INFO     Fazendo requisição para BrasilAPI para a data: 2023-12-20
+2022-06-15 21:29:08,450 urllib3.connectionpool DEBUG    Starting new HTTPS connection (1): brasilapi.com.br:443
+2022-06-15 21:29:08,571 urllib3.connectionpool DEBUG    https://brasilapi.com.br:443 "GET /api/feriados/v1/2023 HTTP/1.1" 200 None
+2022-06-15 21:29:08,606 django.request WARNING  Bad Request: /api/agendamentos/
+2022-06-15 21:29:08,631 root         INFO     Fazendo requisição para BrasilAPI para a data: 2023-12-22
+2022-06-15 21:29:08,639 urllib3.connectionpool DEBUG    Starting new HTTPS connection (1): brasilapi.com.br:443
+2022-06-15 21:29:08,724 urllib3.connectionpool DEBUG    https://brasilapi.com.br:443 "GET /api/feriados/v1/2023 HTTP/1.1" 200 None
+2022-06-15 21:29:08,740 root         INFO     Fazendo requisição para BrasilAPI para a data: 2023-12-22
+2022-06-15 21:29:08,744 urllib3.connectionpool DEBUG    Starting new HTTPS connection (1): brasilapi.com.br:443
+2022-06-15 21:29:08,831 urllib3.connectionpool DEBUG    https://brasilapi.com.br:443 "GET /api/feriados/v1/2023 HTTP/1.1" 200 None
+2022-06-15 21:29:08,845 django.request WARNING  Bad Request: /api/agendamentos/
+2022-06-15 21:29:08,892 root         INFO     Fazendo requisição para BrasilAPI para a data: 2023-12-20
+2022-06-15 21:29:08,899 urllib3.connectionpool DEBUG    Starting new HTTPS connection (1): brasilapi.com.br:443
+2022-06-15 21:29:09,007 urllib3.connectionpool DEBUG    https://brasilapi.com.br:443 "GET /api/feriados/v1/2023 HTTP/1.1" 200 None
+2022-06-15 21:29:09,033 root         INFO     Fazendo requisição para BrasilAPI para a data: 2023-12-20
+2022-06-15 21:29:09,036 urllib3.connectionpool DEBUG    Starting new HTTPS connection (1): brasilapi.com.br:443
+2022-06-15 21:29:09,118 urllib3.connectionpool DEBUG    https://brasilapi.com.br:443 "GET /api/feriados/v1/2023 HTTP/1.1" 200 None
+2022-06-15 21:29:09,149 root         INFO     Fazendo requisição para BrasilAPI para a data: 2023-12-20
+2022-06-15 21:29:09,153 urllib3.connectionpool DEBUG    Starting new HTTPS connection (1): brasilapi.com.br:443
+2022-06-15 21:29:09,253 urllib3.connectionpool DEBUG    https://brasilapi.com.br:443 "GET /api/feriados/v1/2023 HTTP/1.1" 200 None
+2022-06-15 21:29:09,273 root         INFO     Fazendo requisição para BrasilAPI para a data: 2023-12-20
+2022-06-15 21:29:09,280 urllib3.connectionpool DEBUG    Starting new HTTPS connection (1): brasilapi.com.br:443
+2022-06-15 21:29:09,456 urllib3.connectionpool DEBUG    https://brasilapi.com.br:443 "GET /api/feriados/v1/2023 HTTP/1.1" 200 None
+2022-06-15 21:29:09,475 django.request WARNING  Bad Request: /api/agendamentos/
+2022-06-15 21:29:09,505 root         INFO     Fazendo requisição para BrasilAPI para a data: 2023-12-20
+2022-06-15 21:29:09,510 urllib3.connectionpool DEBUG    Starting new HTTPS connection (1): brasilapi.com.br:443
+2022-06-15 21:29:09,581 urllib3.connectionpool DEBUG    https://brasilapi.com.br:443 "GET /api/feriados/v1/2023 HTTP/1.1" 200 None
+2022-06-15 21:29:09,608 root         INFO     Fazendo requisição para BrasilAPI para a data: 2023-12-20
+2022-06-15 21:29:09,614 urllib3.connectionpool DEBUG    Starting new HTTPS connection (1): brasilapi.com.br:443
+2022-06-15 21:29:09,685 urllib3.connectionpool DEBUG    https://brasilapi.com.br:443 "GET /api/feriados/v1/2023 HTTP/1.1" 200 None
+2022-06-15 21:29:09,712 django.request WARNING  Bad Request: /api/agendamentos/
+2022-06-15 21:29:09,726 root         INFO     Fazendo requisição para BrasilAPI para a data: 2023-12-20
+2022-06-15 21:29:09,733 urllib3.connectionpool DEBUG    Starting new HTTPS connection (1): brasilapi.com.br:443
+2022-06-15 21:29:09,828 urllib3.connectionpool DEBUG    https://brasilapi.com.br:443 "GET /api/feriados/v1/2023 HTTP/1.1" 200 None
+2022-06-15 21:29:09,846 root         INFO     Fazendo requisição para BrasilAPI para a data: 2023-12-20
+2022-06-15 21:29:09,849 urllib3.connectionpool DEBUG    Starting new HTTPS connection (1): brasilapi.com.br:443
+2022-06-15 21:29:09,929 urllib3.connectionpool DEBUG    https://brasilapi.com.br:443 "GET /api/feriados/v1/2023 HTTP/1.1" 200 None
+2022-06-15 21:29:09,944 django.request WARNING  Bad Request: /api/agendamentos/
+2022-06-15 21:29:09,974 root         INFO     Fazendo requisição para BrasilAPI para a data: 2023-12-20
+2022-06-15 21:29:09,980 urllib3.connectionpool DEBUG    Starting new HTTPS connection (1): brasilapi.com.br:443
+2022-06-15 21:29:10,059 urllib3.connectionpool DEBUG    https://brasilapi.com.br:443 "GET /api/feriados/v1/2023 HTTP/1.1" 200 None
+2022-06-15 21:29:10,074 root         INFO     Fazendo requisição para BrasilAPI para a data: 2023-12-20
+2022-06-15 21:29:10,077 urllib3.connectionpool DEBUG    Starting new HTTPS connection (1): brasilapi.com.br:443
+2022-06-15 21:29:10,153 urllib3.connectionpool DEBUG    https://brasilapi.com.br:443 "GET /api/feriados/v1/2023 HTTP/1.1" 200 None
+2022-06-15 21:29:10,165 django.request WARNING  Bad Request: /api/agendamentos/
+2022-06-15 21:29:10,186 root         INFO     Fazendo requisição para BrasilAPI para a data: 2023-12-24
+2022-06-15 21:29:10,190 urllib3.connectionpool DEBUG    Starting new HTTPS connection (1): brasilapi.com.br:443
+2022-06-15 21:29:10,270 urllib3.connectionpool DEBUG    https://brasilapi.com.br:443 "GET /api/feriados/v1/2023 HTTP/1.1" 200 None
+2022-06-15 21:29:10,276 root         INFO     Fazendo requisição para BrasilAPI para a data: 2023-12-24
+2022-06-15 21:29:10,279 urllib3.connectionpool DEBUG    Starting new HTTPS connection (1): brasilapi.com.br:443
+2022-06-15 21:29:10,359 urllib3.connectionpool DEBUG    https://brasilapi.com.br:443 "GET /api/feriados/v1/2023 HTTP/1.1" 200 None
+2022-06-15 21:29:10,362 django.request WARNING  Bad Request: /api/agendamentos/
+2022-06-15 21:29:10,382 root         INFO     Fazendo requisição para BrasilAPI para a data: 2023-12-20
+2022-06-15 21:29:10,386 urllib3.connectionpool DEBUG    Starting new HTTPS connection (1): brasilapi.com.br:443
+2022-06-15 21:29:10,469 urllib3.connectionpool DEBUG    https://brasilapi.com.br:443 "GET /api/feriados/v1/2023 HTTP/1.1" 200 None
+2022-06-15 21:29:10,485 root         INFO     Fazendo requisição para BrasilAPI para a data: 2023-12-20
+2022-06-15 21:29:10,488 urllib3.connectionpool DEBUG    Starting new HTTPS connection (1): brasilapi.com.br:443
+2022-06-15 21:29:10,557 urllib3.connectionpool DEBUG    https://brasilapi.com.br:443 "GET /api/feriados/v1/2023 HTTP/1.1" 200 None
+2022-06-15 21:29:10,569 django.request WARNING  Bad Request: /api/agendamentos/
+2022-06-15 21:29:10,589 root         INFO     Fazendo requisição para BrasilAPI para a data: 2023-12-20
+2022-06-15 21:29:10,595 urllib3.connectionpool DEBUG    Starting new HTTPS connection (1): brasilapi.com.br:443
+2022-06-15 21:29:10,678 urllib3.connectionpool DEBUG    https://brasilapi.com.br:443 "GET /api/feriados/v1/2023 HTTP/1.1" 200 None
+2022-06-15 21:29:10,693 root         INFO     Fazendo requisição para BrasilAPI para a data: 2023-12-20
+2022-06-15 21:29:10,696 urllib3.connectionpool DEBUG    Starting new HTTPS connection (1): brasilapi.com.br:443
+2022-06-15 21:29:10,772 urllib3.connectionpool DEBUG    https://brasilapi.com.br:443 "GET /api/feriados/v1/2023 HTTP/1.1" 200 None
+2022-06-15 21:29:10,784 django.request WARNING  Bad Request: /api/agendamentos/
+2022-06-15 21:29:10,808 django.request WARNING  Not Found: /api/agendamentos/1/
+2022-06-15 21:29:10,830 root         INFO     Fazendo requisição para BrasilAPI para a data: 2023-12-20
+2022-06-15 21:29:10,834 urllib3.connectionpool DEBUG    Starting new HTTPS connection (1): brasilapi.com.br:443
+2022-06-15 21:29:10,902 urllib3.connectionpool DEBUG    https://brasilapi.com.br:443 "GET /api/feriados/v1/2023 HTTP/1.1" 200 None
+2022-06-15 21:29:10,923 root         INFO     Fazendo requisição para BrasilAPI para a data: 2023-12-20
+2022-06-15 21:29:10,925 urllib3.connectionpool DEBUG    Starting new HTTPS connection (1): brasilapi.com.br:443
+2022-06-15 21:29:10,988 urllib3.connectionpool DEBUG    https://brasilapi.com.br:443 "GET /api/feriados/v1/2023 HTTP/1.1" 200 None
+2022-06-15 21:29:11,108 django.request WARNING  Bad Request: /api/servicos/
