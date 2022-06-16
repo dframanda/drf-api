@@ -1,1 +1,2 @@
-[![Django CI](https://github.com/dframanda/drf-api/actions/workflows/django.yml/badge.svg?branch=develop)](https://github.com/dframanda/drf-api/actions/workflows/django.yml)
+[![Django CI](https://github.com/dframanda/drf-api/actions/workflows/django.yml/badge.svg](https://github.com/dframanda/drf-api/actions/workflows/django.yml)
+
